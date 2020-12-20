@@ -1,0 +1,123 @@
+    /*
+    Flaticon icon font: Flaticon
+    Creation date: 30/10/2018 15:38
+    */
+
+    @font-face {
+  font-family: "Flaticon";
+  src: url("./Flaticon.eot");
+  src: url("./Flaticon.eot?#iefix") format("embedded-opentype"),
+       url("./Flaticon.woff") format("woff"),
+       url("./Flaticon.ttf") format("truetype"),
+       url("./Flaticon.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon";
+    src: url("./Flaticon.svg#Flaticon") format("svg");
+  }
+}
+
+    .fi:before{
+        display: inline-block;
+  font-family: "Flaticon";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+    }
+
+    .flaticon-twitter-logo-silhouette:before { content: "\f100"; }
+.flaticon-video-camera:before { content: "\f101"; }
+.flaticon-support:before { content: "\f102"; }
+.flaticon-vector:before { content: "\f103"; }
+.flaticon-content:before { content: "\f104"; }
+.flaticon-phone-call:before { content: "\f105"; }
+.flaticon-chat-1:before { content: "\f106"; }
+.flaticon-chat-2:before { content: "\f107"; }
+.flaticon-placeholder:before { content: "\f108"; }
+.flaticon-folder:before { content: "\f109"; }
+.flaticon-telephone:before { content: "\f10a"; }
+.flaticon-man-user:before { content: "\f10b"; }
+.flaticon-facebook-logo:before { content: "\f10c"; }
+.flaticon-behance-logo:before { content: "\f10d"; }
+.flaticon-dribbble-logo:before { content: "\f10e"; }
+.flaticon-arrow-point-to-right:before { content: "\f10f"; }
+.flaticon-comment-black-oval-bubble-shape:before { content: "\f110"; }
+.flaticon-pie-chart:before { content: "\f111"; }
+.flaticon-graph:before { content: "\f112"; }
+.flaticon-worldwide:before { content: "\f113"; }
+.flaticon-cargo-ship:before { content: "\f114"; }
+.flaticon-sunset:before { content: "\f115"; }
+.flaticon-world:before { content: "\f116"; }
+.flaticon-around:before { content: "\f117"; }
+.flaticon-boat:before { content: "\f118"; }
+.flaticon-boat-1:before { content: "\f119"; }
+.flaticon-museum:before { content: "\f11a"; }
+.flaticon-career:before { content: "\f11b"; }
+.flaticon-woman:before { content: "\f11c"; }
+.flaticon-calendar:before { content: "\f11d"; }
+.flaticon-chat:before { content: "\f11e"; }
+.flaticon-college-graduation:before { content: "\f11f"; }
+.flaticon-calendar-1:before { content: "\f120"; }
+.flaticon-three-buildings:before { content: "\f121"; }
+.flaticon-apartment:before { content: "\f122"; }
+.flaticon-arrowhead-thin-outline-to-the-left:before { content: "\f123"; }
+.flaticon-art:before { content: "\f124"; }
+.flaticon-video-player:before { content: "\f125"; }
+.flaticon-play-button:before { content: "\f126"; }
+.flaticon-menu:before { content: "\f127"; }
+.flaticon-black-back-closed-envelope-shape:before { content: "\f128"; }
+.flaticon-maps-and-flags:before { content: "\f129"; }
+    
+    $font-Flaticon-twitter-logo-silhouette: "\f100";
+    $font-Flaticon-video-camera: "\f101";
+    $font-Flaticon-support: "\f102";
+    $font-Flaticon-vector: "\f103";
+    $font-Flaticon-content: "\f104";
+    $font-Flaticon-phone-call: "\f105";
+    $font-Flaticon-chat-1: "\f106";
+    $font-Flaticon-chat-2: "\f107";
+    $font-Flaticon-placeholder: "\f108";
+    $font-Flaticon-folder: "\f109";
+    $font-Flaticon-telephone: "\f10a";
+    $font-Flaticon-man-user: "\f10b";
+    $font-Flaticon-facebook-logo: "\f10c";
+    $font-Flaticon-behance-logo: "\f10d";
+    $font-Flaticon-dribbble-logo: "\f10e";
+    $font-Flaticon-arrow-point-to-right: "\f10f";
+    $font-Flaticon-comment-black-oval-bubble-shape: "\f110";
+    $font-Flaticon-pie-chart: "\f111";
+    $font-Flaticon-graph: "\f112";
+    $font-Flaticon-worldwide: "\f113";
+    $font-Flaticon-cargo-ship: "\f114";
+    $font-Flaticon-sunset: "\f115";
+    $font-Flaticon-world: "\f116";
+    $font-Flaticon-around: "\f117";
+    $font-Flaticon-boat: "\f118";
+    $font-Flaticon-boat-1: "\f119";
+    $font-Flaticon-museum: "\f11a";
+    $font-Flaticon-career: "\f11b";
+    $font-Flaticon-woman: "\f11c";
+    $font-Flaticon-calendar: "\f11d";
+    $font-Flaticon-chat: "\f11e";
+    $font-Flaticon-college-graduation: "\f11f";
+    $font-Flaticon-calendar-1: "\f120";
+    $font-Flaticon-three-buildings: "\f121";
+    $font-Flaticon-apartment: "\f122";
+    $font-Flaticon-arrowhead-thin-outline-to-the-left: "\f123";
+    $font-Flaticon-art: "\f124";
+    $font-Flaticon-video-player: "\f125";
+    $font-Flaticon-play-button: "\f126";
+    $font-Flaticon-menu: "\f127";
+    $font-Flaticon-black-back-closed-envelope-shape: "\f128";
+    $font-Flaticon-maps-and-flags: "\f129";
