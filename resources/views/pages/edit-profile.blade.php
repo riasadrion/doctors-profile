@@ -25,7 +25,7 @@
                         <div class="row">
                             <div class="col-lg-3 col-md-12">
                                 <div class="from-left">
-                                    <img src="/storage/profile-pic/{{ $user->profile_pic }}" alt="contact">
+                                    <img src="/storage/profile-pic/{{ $user->profile_pic }}">
                                     <form action="/upload-pic" method="post" enctype="multipart/form-data">
                                         @csrf
                                         <br>

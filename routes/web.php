@@ -20,6 +20,10 @@ Route::get('/dashboard', function () {
 
 Route::get('/', [CMs\PageController::class, 'index']);
 
+Route::get('/profile', [CMs\PageController::class, 'profile']);
+
+
+
 Route::get('/edit-profile', [CMs\PageController::class, 'editProfile']);
 Route::post('/upload-pic', [CMs\PageController::class, 'uploadPic']);
 Route::post('/update-profile', [CMs\PageController::class, 'updateProfile']);

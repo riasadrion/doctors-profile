@@ -7,7 +7,7 @@
 		<meta name="description" content="">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<!-- title here -->
-		<title>Xfars - Personal Tour Travelers Blog HTML5 Template</title>
+		<title>@yield('title')</title>
         <!-- Favicon and Touch Icons -->
         <link rel="shortcut icon" href="{{ url('/') }}/assets/images/fav.png">
 		<!-- Place favicon.ico in the root directory -->

@@ -10,13 +10,15 @@ use App\Models\User;
 class PageController extends Controller
 {
     public function index(){
-        $user = User::first();
-        return view('pages.index', compact('user'));
+        return view('pages.index');
+    }
+
+    public function profile(){
+        return view('pages.profile');
     }
 
     public function editProfile(){
-        $user = User::first();
-        return view('pages.edit-profile', compact('user'));
+        return view('pages.edit-profile');
     }
 
     public function uploadPic(Request $request){
