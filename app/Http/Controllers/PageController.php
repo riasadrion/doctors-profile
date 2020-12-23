@@ -4,17 +4,30 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use \Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 use App\Models\User;
+use App\Models\Education;
+use App\Models\Work;
+use App\Models\Skill;
+use App\Models\Post;
 
 class PageController extends Controller
 {
     public function index(){
-        return view('pages.index');
+        $posts = Post::orderBy('id', 'desc')->paginate(1);
+        foreach($posts as $post){
+            $post->title = Str::limit($post->title, 50);
+            $post->descr = strip_tags(Str::limit($post->descr, 140));
+        }
+        return view('pages.index', compact('posts'));
     }
 
     public function profile(){
-        return view('pages.profile');
+        $educations = Education::orderBy('id', 'desc')->get();
+        $works = Work::orderBy('id', 'desc')->get();
+        $skills = Skill::orderBy('id', 'desc')->get();
+        return view('pages.profile', compact('educations', 'works', 'skills'));
     }
 
     public function editProfile(){
@@ -59,8 +72,57 @@ class PageController extends Controller
         $user->tw = $request->tw;
         $user->in = $request->in;
         $user->gram = $request->gram;
+        $user->password = bcrypt($request->password);
 
         if ($user->save()) {
+            return  redirect()->back();
+        }
+    }
+
+    public function createEducation(Request $request){
+        $education = new Education;
+
+        $education->degree = $request->degree;
+        $education->institute = $request->institute;
+        $education->from_to = $request->from_to;
+        if ($education->save()) {
+            return  redirect()->back();
+        }
+    }
+    public function deleteEducation($id){
+        $education = Education::find($id);
+        if ($education->delete()) {
+            return  redirect()->back();
+        }
+    }
+    public function createWork(Request $request){
+        $work = new Work;
+
+        $work->designation = $request->designation;
+        $work->institute = $request->institute;
+        $work->from_to = $request->from_to;
+        if ($work->save()) {
+            return  redirect()->back();
+        }
+    }
+    public function deleteWork($id){
+        $work = Work::find($id);
+        if ($work->delete()) {
+            return  redirect()->back();
+        }
+    }
+    public function createSkill(Request $request){
+        $skill = new Skill;
+
+        $skill->name = $request->name;
+        $skill->percent = $request->percent;
+        if ($skill->save()) {
+            return  redirect()->back();
+        }
+    }
+    public function deleteSkill($id){
+        $skill = Skill::find($id);
+        if ($skill->delete()) {
             return  redirect()->back();
         }
     }

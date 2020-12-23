@@ -85,6 +85,10 @@
                                         <div class="form-group box-shadow">
                                             <input type="text" class="form-control" name="gram" value="{{ $user->gram }}" placeholder="Instagram link">
                                         </div>
+                                        <div class="form-group">
+                                            <label for="">New Password</label>
+                                            <input type="password" class="form-control" name="password" placeholder="New Password" autocomplete="off">
+                                        </div>
                                         <div class="from-btn text-right">
                                             <button type="submit" class="btn btn-success">Update</button>
                                         </div>

@@ -24,9 +24,17 @@ Route::get('/profile', [CMs\PageController::class, 'profile']);
 
 
 
+Route::resource('posts', CMs\PostController::class);
+
 Route::get('/edit-profile', [CMs\PageController::class, 'editProfile']);
 Route::post('/upload-pic', [CMs\PageController::class, 'uploadPic']);
 Route::post('/update-profile', [CMs\PageController::class, 'updateProfile']);
+Route::post('/create-education', [CMs\PageController::class, 'createEducation']);
+Route::delete('/del-edu/{id}', [CMs\PageController::class, 'deleteEducation']);
+Route::post('/create-work', [CMs\PageController::class, 'createWork']);
+Route::delete('/del-work/{id}', [CMs\PageController::class, 'deleteWork']);
+Route::post('/create-skill', [CMs\PageController::class, 'createSkill']);
+Route::delete('/del-skill/{id}', [CMs\PageController::class, 'deleteSkill']);
 
 
 

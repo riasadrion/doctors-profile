@@ -28,7 +28,8 @@
 		<link rel="stylesheet" href="{{ url('/') }}/assets/css/style.css">
 		<!--Theme Responsive css-->
 		<link rel="stylesheet" href="{{ url('/') }}/assets/css/responsive.css" />
-		<script src="{{ url('/') }}/assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+        <script src="{{ url('/') }}/assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+        @yield('css')
 	</head>
 	<body>
 		<!-- header area start here -->
@@ -88,7 +89,16 @@
 						</li>
 						<li><a href="{{ url('/') }}/profile">Profile</a></li>
 						<li><a href="{{ url('/') }}/blog">Blog</a></li>
-						<li><a href="{{ url('/') }}/contact">Contact me</a></li>
+                        <li><a href="{{ url('/') }}/contact">Contact me</a></li>
+                        @if (!Auth::guest())
+                        <li><form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <a href="javascript:void(0)" onclick="event.preventDefault();
+                            this.closest('form').submit();">Logout</a>
+                        </form></li>
+                        @else
+                        <li><a href="{{ url('/') }}/login">Login</a></li>
+                        @endif
 					</ul>
 				</nav>
 			</div>
@@ -213,7 +223,8 @@
 		<script src="{{ url('/') }}/assets/js/waypoints.min.js"></script>
 		<script src="{{ url('/') }}/assets/js/jquery.appear.js"></script>
 		<script src="{{ url('/') }}/assets/js/jquery.barfiller.js"></script>
-		<script src="{{ url('/') }}/assets/js/main.js"></script>
+        <script src="{{ url('/') }}/assets/js/main.js"></script>
+        @yield('js')
 		<!-- End js file -->
 	</body>
 </html>

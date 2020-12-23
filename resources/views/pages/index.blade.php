@@ -42,224 +42,36 @@
 				<div class="row">
 					<div class="col-lg-8">
 						<div class="post-list">
+                            @foreach ($posts as $index => $post)
 							<div class="single-post">
-								<div class="inner-post">
+                                <div class="inner-post">
 									<div class="post-img">
-										<a href="#"><img src="{{ url('/') }}/assets/images/blog/6.png" alt="blog"></a>
+										<a href="{{ url('/') }}/posts/{{ $post['id'] }}"><img src="{{ url('/') }}/storage/post-images/{{ $post['thumb'] }}" alt="blog"></a>
 									</div>
 									<div class="post-info">
-										<div class="post-title">
-											<h3><a href="#">Tourism in cox's bazar</a></h3>
+										<div class="post-title" style="max-width: 345px">
+											<h3 style="line-height: 30px"><a href="{{ url('/') }}/posts/{{ $post['id'] }}">{{ $post['title'] }}</a></h3>
 										</div>
 										<div class="post-content">
-											<p>Lorem Ipsum is simply dummy text of the printing and typesetting  industry. Lorem Ipsum has been the industry's standard dum	my text ever since the when an unknown printer took a galley of type and scrambled it to make aspecimen book.</p>
+											{!! $post['descr'] !!}
 										</div>
 										<div class="blog-meta fix" >
 											<div class="meta-left pull-left">
 												<ul>
-													<li> <span class="flaticon-man-user user"></span> <p>By <a href="#">Admin</a> </p></li>
-													<li> <span class="flaticon-calendar clendar"></span> <p>20 Jan 2018</p></li>
+													<li> <span class="flaticon-calendar clendar"></span> <p>{{ \Carbon\Carbon::parse($post['created_at'] )->format('j F, Y')}}</p></li>
 												</ul>
 											</div>
 											<div class="post-readmore pull-right">
-												<a href="#" class="readmore-btn">Read More <span>+</span></a>
+												<a href="{{ url('/') }}/posts/{{ $post['id'] }}" class="readmore-btn">Read More <span>+</span></a>
 											</div>
 										</div>
 									</div>
 								</div>
 								<div class="post-date one">
-									<span>01</span>
+									<span>0{{ $index + 1 }}</span>
 								</div>
-							</div>
-							<div class="single-post">
-								<div class="inner-post">
-									<div class="post-img">
-										<a href="#"><img src="{{ url('/') }}/assets/images/blog/7.png" alt="blog"></a>
-									</div>
-									<div class="post-info">
-										<div class="post-title">
-											<h3><a href="#">Tourism in cox's bazar</a></h3>
-										</div>
-										<div class="post-content">
-											<p>Lorem Ipsum is simply dummy text of the printing and typesetting  industry. Lorem Ipsum has been the industry's standard dum	my text ever since the when an unknown printer took a galley of type and scrambled it to make aspecimen book.</p>
-										</div>
-										<div class="blog-meta fix" >
-											<div class="meta-left pull-left">
-												<ul>
-													<li> <span class="flaticon-man-user user"></span> <p>By <a href="#">Admin</a> </p></li>
-													<li> <span class="flaticon-calendar clendar"></span> <p>20 Jan 2018</p></li>
-												</ul>
-											</div>
-											<div class="post-readmore pull-right">
-												<a href="#" class="readmore-btn">Read More <span>+</span></a>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="post-date one">
-									<span>02</span>
-								</div>
-							</div>
-							<div class="single-post">
-								<div class="inner-post">
-									<div class="post-img">
-										<a href="#"><img src="{{ url('/') }}/assets/images/blog/7.png" alt="blog"></a>
-									</div>
-									<div class="post-info">
-										<div class="post-title">
-											<h3><a href="#">Tourism in cox's bazar</a></h3>
-										</div>
-										<div class="post-content">
-											<p>Lorem Ipsum is simply dummy text of the printing and typesetting  industry. Lorem Ipsum has been the industry's standard dum	my text ever since the when an unknown printer took a galley of type and scrambled it to make aspecimen book.</p>
-										</div>
-										<div class="blog-meta fix" >
-											<div class="meta-left pull-left">
-												<ul>
-													<li> <span class="flaticon-man-user user"></span> <p>By <a href="#">Admin</a> </p></li>
-													<li> <span class="flaticon-calendar clendar"></span> <p>20 Jan 2018</p></li>
-												</ul>
-											</div>
-											<div class="post-readmore pull-right">
-												<a href="#" class="readmore-btn">Read More <span>+</span></a>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="post-date one">
-									<span>03</span>
-								</div>
-							</div>
-							<div class="single-post">
-								<div class="inner-post">
-									<div class="post-img">
-										<a href="#"><img src="{{ url('/') }}/assets/images/blog/9.png" alt="blog"></a>
-									</div>
-									<div class="post-info">
-										<div class="post-title">
-											<h3><a href="#">Tourism in cox's bazar</a></h3>
-										</div>
-										<div class="post-content">
-											<p>Lorem Ipsum is simply dummy text of the printing and typesetting  industry. Lorem Ipsum has been the industry's standard dum	my text ever since the when an unknown printer took a galley of type and scrambled it to make aspecimen book.</p>
-										</div>
-										<div class="blog-meta fix" >
-											<div class="meta-left pull-left">
-												<ul>
-													<li> <span class="flaticon-man-user user"></span> <p>By <a href="#">Admin</a> </p></li>
-													<li> <span class="flaticon-calendar clendar"></span> <p>20 Jan 2018</p></li>
-												</ul>
-											</div>
-											<div class="post-readmore pull-right">
-												<a href="#" class="readmore-btn">Read More <span>+</span></a>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="post-date one">
-									<span>04</span>
-								</div>
-							</div>
-							<div class="single-post">
-								<div class="inner-post">
-									<div class="post-img">
-										<a href="#"><img src="{{ url('/') }}/assets/images/blog/10.png" alt="blog"></a>
-									</div>
-									<div class="post-info">
-										<div class="post-title">
-											<h3><a href="#">Tourism in cox's bazar</a></h3>
-										</div>
-										<div class="post-content">
-											<p>Lorem Ipsum is simply dummy text of the printing and typesetting  industry. Lorem Ipsum has been the industry's standard dum	my text ever since the when an unknown printer took a galley of type and scrambled it to make aspecimen book.</p>
-										</div>
-										<div class="blog-meta fix" >
-											<div class="meta-left pull-left">
-												<ul>
-													<li> <span class="flaticon-man-user user"></span> <p>By <a href="#">Admin</a> </p></li>
-													<li> <span class="flaticon-calendar clendar"></span> <p>20 Jan 2018</p></li>
-												</ul>
-											</div>
-											<div class="post-readmore pull-right">
-												<a href="#" class="readmore-btn">Read More <span>+</span></a>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="post-date one">
-									<span>05</span>
-								</div>
-							</div>
-							<div class="single-post">
-								<div class="inner-post">
-									<div class="post-img">
-										<a href="#"><img src="{{ url('/') }}/assets/images/blog/11.png" alt="blog"></a>
-									</div>
-									<div class="post-info">
-										<div class="post-title">
-											<h3><a href="#">Tourism in cox's bazar</a></h3>
-										</div>
-										<div class="post-content">
-											<p>Lorem Ipsum is simply dummy text of the printing and typesetting  industry. Lorem Ipsum has been the industry's standard dum	my text ever since the when an unknown printer took a galley of type and scrambled it to make aspecimen book.</p>
-										</div>
-										<div class="blog-meta fix" >
-											<div class="meta-left pull-left">
-												<ul>
-													<li> <span class="flaticon-man-user user"></span> <p>By <a href="#">Admin</a> </p></li>
-													<li> <span class="flaticon-calendar clendar"></span> <p>20 Jan 2018</p></li>
-												</ul>
-											</div>
-											<div class="post-readmore pull-right">
-												<a href="#" class="readmore-btn">Read More <span>+</span></a>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="post-date one">
-									<span>06</span>
-								</div>
-							</div>
-							<div class="single-post">
-								<div class="inner-post">
-									<div class="post-img">
-										<a href="#"><img src="{{ url('/') }}/assets/images/blog/12.png" alt="blog"></a>
-									</div>
-									<div class="post-info">
-										<div class="post-title">
-											<h3><a href="#">Tourism in cox's bazar</a></h3>
-										</div>
-										<div class="post-content">
-											<p>Lorem Ipsum is simply dummy text of the printing and typesetting  industry. Lorem Ipsum has been the industry's standard dum	my text ever since the when an unknown printer took a galley of type and scrambled it to make aspecimen book.</p>
-										</div>
-										<div class="blog-meta fix" >
-											<div class="meta-left pull-left">
-												<ul>
-													<li> <span class="flaticon-man-user user"></span> <p>By <a href="#">Admin</a> </p></li>
-													<li> <span class="flaticon-calendar clendar"></span> <p>20 Jan 2018</p></li>
-												</ul>
-											</div>
-											<div class="post-readmore pull-right">
-												<a href="#" class="readmore-btn">Read More <span>+</span></a>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="post-date one">
-									<span>07</span>
-								</div>
-							</div>
-							<div class="pagination-area">
-								<div class="pagination">
-									<ul>
-										<li class="prev"><a href="#">PRev</a></li>
-										<li class="page"><a href="#">01</a></li>
-										<li class="page"><a href="#">02</a></li>
-										<li class="page"><a href="#">03</a></li>
-										<li class="page"><a href="#">04</a></li>
-										<li class="page active"><a href="#">05</a></li>
-										<li class="page"><a href="#">06</a></li>
-										<li class="page"><a href="#">07</a></li>
-										<li class="next pull-right"><a href="#">Next</a></li>
-									</ul>
-								</div>
-							</div>
+                            </div>
+                            @endforeach
 						</div>
 					</div>
 					<div class="col-lg-4">
