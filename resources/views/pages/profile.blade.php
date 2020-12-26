@@ -22,7 +22,11 @@
         <div class="row">
             <div class="col-lg-6 col-md-12 ">
                 <div class="profile-img box-shadow">
-                    <img src="/storage/profile-pic/{{ $user->profile_pic }}">
+                    @if($user->profile_pic)
+                    <img src="{{ url('/') }}/storage/profile-pic/{{ $user->profile_pic }}" alt="profile">
+                    @else
+                    <img src="{{ url('/') }}/assets/images/profile_pic.png" alt="profile">
+                    @endif
                 </div>
             </div>
             <div class="col-lg-6 col-md-12">

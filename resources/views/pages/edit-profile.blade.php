@@ -25,12 +25,33 @@
                         <div class="row">
                             <div class="col-lg-3 col-md-12">
                                 <div class="from-left">
+                                    @if($user->profile_pic)
                                     <img src="/storage/profile-pic/{{ $user->profile_pic }}">
+                                    @else
+                                    <img src="{{ url('/') }}/assets/images/profile_pic.png" alt="profile"></a>
+                                    @endif
                                     <form action="/upload-pic" method="post" enctype="multipart/form-data">
                                         @csrf
                                         <br>
                                         <label for="">Image size 400x400 pixel is recommended</label>
                                         <input type="file" name="profile_pic" class="form-control-file">
+                                        <br>
+                                        <div class="text-left mt-2">
+                                            <button type="submit" class="btn btn-success">Upload</button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="from-left" style="margin-top: 30px">
+                                    @if($user->logo)
+                                    <img src="/storage/logo/{{ $user->logo }}">
+                                    @else
+                                    <img src="{{ url('/') }}/assets/images/logo1.png" alt="profile"></a>
+                                    @endif
+                                    <form action="/upload-logo" method="post" enctype="multipart/form-data">
+                                        @csrf
+                                        <br>
+                                        <label for="">Logo Upload</label>
+                                        <input type="file" name="logo" class="form-control-file">
                                         <br>
                                         <div class="text-left mt-2">
                                             <button type="submit" class="btn btn-success">Upload</button>

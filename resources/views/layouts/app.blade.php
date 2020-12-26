@@ -37,31 +37,32 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-2 col-xs-6">
-						{{-- <div class="log-area">
+						<div class="log-area">
 							<a href="index.html"><img src="{{ url('/') }}/assets/images/logo1.png" alt=""></a>
-						</div> --}}
+						</div>
 					</div>
 					<div class="col-md-9">
-						{{-- <div class="menu-area white">
+						<div class="menu-area white">
 							<nav>
 								<ul>
-									<li class="active sub"><a href="index.html">home  <span class="fa fa-angle-down"></span></a>
-										<ul class="sub-menu">
-											<li><a href="index.html">home one</a></li>
-											<li><a href="index2.html">home two</a></li>
-											<li><a href="index3.html">home three</a></li>
-											<li><a href="index4.html">home four</a></li>
-											<li><a href="index5.html">home five</a></li>
-										</ul>
-									</li>
-									<li><a href="Profile.html">Profile</a></li>
-									<li><a href="travel.html">Travel</a></li>
-									<li><a href="portfolio.html">portfolio</a></li>
-									<li><a href="blog-details.html">blog</a></li>
-									<li><a href="contact.html">contact us</a></li>
+									<li class="active"><a href="{{ url('/') }}">Home</a>
+                                    </li>
+                                    <li><a href="{{ url('/') }}/profile">Profile</a></li>
+                                    {{-- <li><a href="{{ url('/') }}/blog">Blog</a></li> --}}
+                                    {{-- <li><a href="{{ url('/') }}/contact">Contact me</a></li> --}}
+                                    @if (!Auth::guest())
+                                    <li><a href="{{ url('/') }}/edit-profile">Update Profile</a></li>
+                                    <li><form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <a href="javascript:void(0)" onclick="event.preventDefault();
+                                        this.closest('form').submit();">Logout</a>
+                                    </form></li>
+                                    @else
+                                    <li><a href="{{ url('/') }}/login">Login</a></li>
+                                    @endif
 								</ul>
 							</nav>
-						</div> --}}
+						</div>
 					</div>
 					<div class="col-md-1 col-xs-6">
 						<div class="humbargar-area">

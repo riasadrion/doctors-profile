@@ -2,44 +2,20 @@
 
 
 @section('content')
-<!-- banner area start here -->
-<div class="banner-area banner-three">
+<div class="breadcrumb-area">
     <div class="container">
         <div class="row">
-            <div class="col-md-6">
-                <div class="banner-content">
-                    <div class="banner-title white">
-                        <h1>{{ $user->name }}</h1>
-                    </div>
-                    <div class="banner-subtitle white ">
-                        <h4>{{ $user->tagline }}</h4>
-                    </div>
-                    <div class="banner-info">
-                        <p>{{ $user->about }}</p>
-                    </div>
-                    <div class="social-media">
-                        <ul>
-                            <li class="active"><a href="{{ $user->fb }}"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="{{ $user->tw }}"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="{{ $user->in }}"><i class="fa fa-linkedin"></i></a></li>
-                            <li><a href="{{ $user->gram }}"><i class="fa fa-instagram"></i></a></li>
-                        </ul>
-                    </div>
+            <div class="col-sm-12">
+                <div class="breadcrumb-title">
+                    <h2>Search</h2>
                 </div>
-            </div>
-            <div class="col-md-6">
-                <div class="banner-img" style="margin-top: 50px;">
-                    @if($user->profile_pic)
-                    <img src="/storage/profile-pic/{{ $user->profile_pic }}">
-                    @else
-                    <img src="{{ url('/') }}/assets/images/profile_pic.png" alt="profile"></a>
-                    @endif
+                <div class="breadcrumb-sibtitle">
+                    <h4>Showing results for "{{ $search }}"</h4>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<!-- banner area start here -->
 <!-- post area start here	 -->
 		<div class="post-two-area">
 			<div class="container">
@@ -77,7 +53,6 @@
                             </div>
                             @endforeach
                         </div>
-                        {{ $posts->links() }}
 					</div>
 					<div class="col-lg-4">
 						<div class="sidebar-widget">
@@ -97,5 +72,5 @@
 			</div>
 			<!-- leaf right area end here	 -->
 		</div>
-		<!-- post area end here	 -->
+<!-- post area end here	 -->
 @endsection

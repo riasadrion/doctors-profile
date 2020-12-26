@@ -11,11 +11,12 @@ use App\Models\Education;
 use App\Models\Work;
 use App\Models\Skill;
 use App\Models\Post;
+use Illuminate\Support\Facades\Mail;
 
 class PageController extends Controller
 {
     public function index(){
-        $posts = Post::orderBy('id', 'desc')->paginate(1);
+        $posts = Post::orderBy('id', 'desc')->paginate(10);
         foreach($posts as $post){
             $post->title = Str::limit($post->title, 50);
             $post->descr = strip_tags(Str::limit($post->descr, 140));
@@ -55,6 +56,27 @@ class PageController extends Controller
         }
     }
 
+    public function uploadLogo(Request $request){
+        $data = User::first();
+        $oldImage = $data->logo;
+        if ($request->hasFile('logo')) {
+            Storage::disk('public')->delete('logo/' . $oldImage);
+            $file = $request->file('logo');
+            $filename = time() . "." . $file->getClientOriginalExtension();
+            $upload = $file->storeAs('public/logo/', $filename);
+            $image = Image::make(public_path('/storage/logo/' . $filename))->resize(250, 55)->save();
+            $data->logo = $filename;
+        } else {
+            $data->logo = $oldImage;
+        }
+
+        if ($data->save()) {
+            return  redirect()->back();
+        } else {
+            return  redirect()->back();
+        }
+    }
+
     public function updateProfile(Request $request){
         $user = User::first();
 
@@ -79,6 +101,34 @@ class PageController extends Controller
         }
     }
 
+    public function search(Request $request){
+        $search = $request->search;
+        $posts = Post::where('title', 'like', "%{$request->search}%")->get();
+        foreach($posts as $post){
+            $post->title = Str::limit($post->title, 50);
+            $post->descr = strip_tags(Str::limit($post->descr, 140));
+        }
+        return view('pages.search', compact('posts', 'search'));
+    }
+    public function contact(Request $request){
+        return view('pages.contact');
+    }
+    public function contactEmail(Request $request){
+        $user = User::first();
+
+        Mail::send('emails.contact',
+             array(
+                 'name' => $request->get('name'),
+                 'email' => $request->get('email'),
+                 'subject' => $request->get('subject'),
+                 'user_message' => $request->get('body'),
+             ), function($message) use ($request, $user){
+                  $message->from($request->email);
+                  $message->to($user->email);
+                  $message->subject($request->subject);
+        });
+        return  redirect()->back();
+    }
     public function createEducation(Request $request){
         $education = new Education;
 

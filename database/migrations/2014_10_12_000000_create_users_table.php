@@ -28,6 +28,7 @@ class CreateUsersTable extends Migration
             $table->string('address_line_1')->nullable();
             $table->string('address_line_2')->nullable();
             $table->string('profile_pic')->nullable();
+            $table->string('logo')->nullable();
             $table->string('fb')->nullable();
             $table->string('tw')->nullable();
             $table->string('in')->nullable();
