@@ -50,7 +50,11 @@
 							<div class="single-post">
                                 <div class="inner-post">
 									<div class="post-img">
-										<a href="{{ url('/') }}/posts/{{ $post['id'] }}"><img src="{{ url('/') }}/storage/post-images/{{ $post['thumb'] }}" alt="blog"></a>
+                                        @if($post->thumb)
+                                        <a href="{{ url('/') }}/posts/{{ $post['id'] }}"><img src="{{ url('/') }}/storage/post-images/{{ $post['thumb'] }}" alt="blog"></a>
+                                        @else
+                                        <img src="{{ url('/') }}/assets/images/blog/1.jpg" alt="blog"></a>
+                                        @endif
 									</div>
 									<div class="post-info">
 										<div class="post-title" style="max-width: 345px">

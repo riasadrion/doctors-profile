@@ -110,7 +110,8 @@
 					</ul>
 				</nav>
 			</div>
-		</div>
+        </div>
+        @include('sweetalert::alert')
 		<!-- menu area start here -->
         @yield('content')
 		<!-- footer area start here -->

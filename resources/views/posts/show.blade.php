@@ -18,11 +18,21 @@
                     <div class="post-thumnile">
                         <div class="owl-item" style="width: 690px;">
                             <div class="single-image" style="margin-bottom: 20px">
+                                @if($post->thumb)
                                 <img src="{{ url('/') }}/storage/post-images/{{ $post->thumb }}" alt="blog">
+                                @else
+                                <img src="{{ url('/') }}/assets/images/blog/1.jpg" alt="blog"></a>
+                                @endif
                             </div>
                     </div>
                     <div class="post-title">
-                        <h3>{{ $post->title }} @if (!Auth::guest()) <a class="btn btn-warning" href="{{ url('/') }}/posts/{{ $post->id }}/edit">Edit</a>@endif</h3>
+                        <h3>{{ $post->title }}
+                            @if (!Auth::guest()) <a class="btn btn-warning" href="{{ url('/') }}/posts/{{ $post->id }}/edit">Edit</a>
+                            <form action="{{ url('/') }}/posts/{{ $post->id }}" method="post">
+                                @method('delete') @csrf
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                            @endif</h3>
                     </div>
                     <div class="blog-meta">
                         <ul>

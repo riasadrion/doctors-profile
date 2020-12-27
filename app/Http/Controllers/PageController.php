@@ -19,7 +19,7 @@ class PageController extends Controller
         $posts = Post::orderBy('id', 'desc')->paginate(10);
         foreach($posts as $post){
             $post->title = Str::limit($post->title, 50);
-            $post->descr =substr(strip_tags($post->descr),0,140).'....';
+            $post->descr =substr(strip_tags($post->descr), 0, 250).'...';
 
         }
         return view('pages.index', compact('posts'));
@@ -51,7 +51,8 @@ class PageController extends Controller
         }
 
         if ($data->save()) {
-            return  redirect()->back();
+            return  redirect()->back()->with('success', 'Picture Uploaded!');
+
         } else {
             return  redirect()->back();
         }
@@ -72,7 +73,7 @@ class PageController extends Controller
         }
 
         if ($data->save()) {
-            return  redirect()->back();
+            return  redirect()->back()->with('success', 'Logo Uploaded!');
         } else {
             return  redirect()->back();
         }
@@ -98,7 +99,7 @@ class PageController extends Controller
         $user->password = bcrypt($request->password);
 
         if ($user->save()) {
-            return  redirect()->back();
+            return  redirect()->back()->with('success', 'Profile Updated!');
         }
     }
 

@@ -44,7 +44,7 @@ class PostController extends Controller
         }
 
         if ($post->save()) {
-            return  redirect()->back();
+            return  redirect('/posts/'.$post->id)->with('success', 'Post Published');
         } else {
             return  redirect()->back();
         }
@@ -81,7 +81,7 @@ class PostController extends Controller
         }
 
         if ($post->save()) {
-            return  redirect()->back();
+            return  redirect()->back()->with('success', 'Post Updated!');
         } else {
             return  redirect()->back();
         }
@@ -89,6 +89,8 @@ class PostController extends Controller
 
     public function destroy(Post $post)
     {
-        //
+        Storage::disk('public')->delete('post-images/' . $post->thumb);
+        $post->delete();
+        return  redirect('/')->with('success', 'Post Deleted!');
     }
 }
