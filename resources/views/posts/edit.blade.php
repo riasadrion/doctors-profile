@@ -22,16 +22,18 @@
         <div class="row">
             <div class="col-lg-8">
                 <div class="single-post box-shadow">
-                    <form action="{{ url('/') }}/posts" method="post" enctype="multipart/form-data">
+                    <form action="{{ url('/') }}/posts/{{ $post->id }}" method="post" enctype="multipart/form-data">
                         @csrf
+                        @method('put')
                         <div class="form-group box-shadow">
-                            <input type="text" class="form-control" name="title" placeholder="Enter title" required>
+                            <input type="text" class="form-control" name="title" placeholder="Enter title" value="{{ $post->title }}" required>
                         </div>
                         <div class="form-group box-shadow">
-                            <textarea class="descr" name="descr" required></textarea>
+                            <textarea class="descr" name="descr"  required>{{ $post->descr }}</textarea>
                         </div>
                         <div class="form-group">
                             <label for="">Featured Image(640x480 recommended)</label>
+                            <img src="{{ url('/') }}/storage/post-images/{{ $post->thumb }}" alt="">
                             <input type="file" name="thumb">
                         </div>
                         <div class="form-group">

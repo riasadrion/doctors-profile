@@ -7,7 +7,7 @@
 		<meta name="description" content="">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<!-- title here -->
-		<title>@yield('title')</title>
+		<title>Best Angiogram</title>
         <!-- Favicon and Touch Icons -->
         <link rel="shortcut icon" href="{{ url('/') }}/assets/images/fav.png">
 		<!-- Place favicon.ico in the root directory -->
@@ -38,7 +38,13 @@
 				<div class="row">
 					<div class="col-md-2 col-xs-6">
 						<div class="log-area">
-							<a href="index.html"><img src="{{ url('/') }}/assets/images/logo1.png" alt=""></a>
+                            <a href="{{ url('/') }}">
+                                @if($user->logo)
+                                <img src="/storage/logo/{{ $user->logo }}">
+                                @else
+                                <img src="{{ url('/') }}/assets/images/logo1.png" alt="profile"></a>
+                                @endif
+                            </a>
 						</div>
 					</div>
 					<div class="col-md-9">
@@ -48,9 +54,9 @@
 									<li class="active"><a href="{{ url('/') }}">Home</a>
                                     </li>
                                     <li><a href="{{ url('/') }}/profile">Profile</a></li>
-                                    {{-- <li><a href="{{ url('/') }}/blog">Blog</a></li> --}}
-                                    {{-- <li><a href="{{ url('/') }}/contact">Contact me</a></li> --}}
+                                    <li><a href="{{ url('/') }}/contact">Contact Me</a></li>
                                     @if (!Auth::guest())
+                                    <li><a href="{{ url('/') }}/posts/create">Publish Post</a></li>
                                     <li><a href="{{ url('/') }}/edit-profile">Update Profile</a></li>
                                     <li><form method="POST" action="{{ route('logout') }}">
                                     @csrf
@@ -87,11 +93,12 @@
 				<nav>
 					<ul>
 						<li class="active"><a href="{{ url('/') }}">Home</a>
-						</li>
-						<li><a href="{{ url('/') }}/profile">Profile</a></li>
-						<li><a href="{{ url('/') }}/blog">Blog</a></li>
-                        <li><a href="{{ url('/') }}/contact">Contact me</a></li>
+                        </li>
+                        <li><a href="{{ url('/') }}/profile">Profile</a></li>
+                        <li><a href="{{ url('/') }}/contact">Contact Me</a></li>
                         @if (!Auth::guest())
+                        <li><a href="{{ url('/') }}/posts/create">Publish Post</a></li>
+                        <li><a href="{{ url('/') }}/edit-profile">Update Profile</a></li>
                         <li><form method="POST" action="{{ route('logout') }}">
                         @csrf
                         <a href="javascript:void(0)" onclick="event.preventDefault();
@@ -114,85 +121,51 @@
 						<div class="col-md-4">
 							<div class="footer-widget widget-text">
 								<div class="footer-logo">
-									<h2><a href="#">Paris </a></h2>
+									<h2><a href="{{ url('/') }}">
+                                        @if($user->logo)
+                                        <img src="/storage/logo/{{ $user->logo }}">
+                                        @else
+                                        <img src="{{ url('/') }}/assets/images/logo1.png" alt="profile"></a>
+                                        @endif
+                                    </a></h2>
 								</div>
 								<div class="widget-content">
-									<p>Lorem Ipsum is simply dummy
-										text of the printing and typesetting
-										industry. Lorem Ipsum has been
-										the industry's standard dummy
-										text ever since the 1500s, when an
-										unknown printer took a galley of
-										type and scrambled it to make a
-										type specimen book. It has survive
-										not only five centuries, but also the
-										 leap into electronic typesetting, </p>
+									<p>{{ $user->about }}</p>
 								</div>
 							</div>
 						</div>
 						<div class="col-md-2">
-							<div class="footer-widget widget-nave">
-								<div class="widget-title">
-									<h3>Quick Link</h3>
-								</div>
-								<div class="widget-nave-list">
-									<ul>
-										<li><a href="#">Fashion </a></li>
-										<li><a href="#">Life style</a></li>
-										<li><a href="#">Creative</a></li>
-										<li><a href="#">Traveling</a></li>
-										<li><a href="#">Guide</a></li>
-										<li><a href="#">World Tour</a></li>
-										<li><a href="#">Ship Tour</a></li>
-									</ul>
-								</div>
-							</div>
+
 						</div>
 						<div class="col-md-3">
-							<div class="footer-widget widget-recent-post">
-								<div class="widget-title">
-									<h3>Recent Post</h3>
-								</div>
-								<div class="recent-post-list">
-									<div class="single-post">
-										<p><a href="#">We denounce with righteou
-											indignation and dislike</a></p>
-									</div>
-									<div class="single-post">
-										<p><a href="#">We denounce with righteou
-											indignation and dislike</a></p>
-									</div>
-									<div class="single-post last">
-										<p><a href="#">We denounce with righteou
-											indignation and dislike</a></p>
-									</div>
-								</div>
-							</div>
 						</div>
 						<div class="col-md-3">
 							<div class="footer-widget widget-Subscribe">
 								<div class="widget-title">
-									<h3>Subscribe Us</h3>
+									<h3>Contact</h3>
 								</div>
 								<div class="widget-Subscribe-form">
-									<form action="#">
-										<div class="from-grupe">
-											<input type="email" name="email" placeholder="Enter your email" id="email">
-											<button type="submit" class="submit-btn">Submit</button>
-										</div>
-									</form>
+                                    <h4 style="color: white">{{ $user->name }}</h4><br>
+                                    <p style="color:#fff; line-height: 27px;">
+                                    <a style="color: #fff" href="mailto:{{ $user->email }}"><i class="fa fa-envelope"></i> {{ $user->email }}</a><br>
+                                    <i class="fa fa-phone-square" aria-hidden="true"></i> {{ $user->contact }}<br>
+                                    <i class="fa fa-map-marker" aria-hidden="true"></i> {{ $user->address_line_1 }}<br>
+                                   &nbsp; &nbsp;  {{ $user->address_line_2 }}</p>
 								</div>
-								<div class="widget-content">
-									<p>Blinded by desire, that they can
-										foresee the pain and trouble that
-										are bound to ensue</p>
-								</div>
+                                <div class="social-media" >
+                                    <ul>
+                                        <li><a style="color: #fff" href="{{ $user->fb }}"><i class="fa fa-facebook"></i></a></li>
+                                        <li><a style="color: #fff" href="{{ $user->tw }}"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a style="color: #fff" href="{{ $user->in }}"><i class="fa fa-linkedin"></i></a></li>
+                                        <li><a style="color: #fff" href="{{ $user->gram }}"><i class="fa fa-instagram"></i></a></li>
+                                    </ul>
+                                </div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="footer-bottom">
+			{{-- <div class="footer-bottom">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-6">
@@ -207,7 +180,7 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> --}}
 		</footer>
 		<!-- footer area end here -->
 		<!-- js file start -->

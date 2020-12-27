@@ -108,7 +108,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="">New Password</label>
-                                            <input type="password" class="form-control" name="password" placeholder="New Password" autocomplete="off">
+                                            <input type="password" class="form-control" name="password" placeholder="New Password" autocomplete="new-password">
                                         </div>
                                         <div class="from-btn text-right">
                                             <button type="submit" class="btn btn-success">Update</button>

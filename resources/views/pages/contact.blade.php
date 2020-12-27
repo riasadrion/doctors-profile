@@ -90,6 +90,7 @@
                             </div>
                             <div class="col-lg-6 col-md-12">
                                 <div class="from-area">
+                                    <h3>Send me a message</h3>
                                     <form action="{{ url('/') }}/contact-email" method="post">
                                         @csrf
                                         <div class="form-group box-shadow">

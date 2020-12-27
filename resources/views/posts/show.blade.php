@@ -22,7 +22,7 @@
                             </div>
                     </div>
                     <div class="post-title">
-                        <h3>{{ $post->title }}</h3>
+                        <h3>{{ $post->title }} @if (!Auth::guest()) <a class="btn btn-warning" href="{{ url('/') }}/posts/{{ $post->id }}/edit">Edit</a>@endif</h3>
                     </div>
                     <div class="blog-meta">
                         <ul>

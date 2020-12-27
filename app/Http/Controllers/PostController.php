@@ -58,12 +58,33 @@ class PostController extends Controller
 
     public function edit(Post $post)
     {
-        //
+        return view('posts.edit', compact('post'));
     }
 
     public function update(Request $request, Post $post)
     {
-        //
+        $post->user_id = 1;
+        $post->title = $request->title;
+        $post->descr = $request->descr;
+        $oldImage = $post->thumb;
+        if ($request->hasFile('thumb')) {
+            Storage::disk('public')->delete('post-images/' . $oldImage);
+            $file = $request->file('thumb');
+            $filename = time() . "." . $file->getClientOriginalExtension();
+            $upload = $file->storeAs('public/post-images/', $filename);
+            $image = Image::make(public_path('/storage/post-images/' . $filename))->resize(640, null, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save();
+            $post->thumb = $filename;
+        }else{
+             $post->thumb = $oldImage;
+        }
+
+        if ($post->save()) {
+            return  redirect()->back();
+        } else {
+            return  redirect()->back();
+        }
     }
 
     public function destroy(Post $post)

@@ -19,7 +19,8 @@ class PageController extends Controller
         $posts = Post::orderBy('id', 'desc')->paginate(10);
         foreach($posts as $post){
             $post->title = Str::limit($post->title, 50);
-            $post->descr = strip_tags(Str::limit($post->descr, 140));
+            $post->descr =substr(strip_tags($post->descr),0,140).'....';
+
         }
         return view('pages.index', compact('posts'));
     }
